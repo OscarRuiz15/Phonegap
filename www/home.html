@@ -73,6 +73,7 @@
             cache: false,
             success: function(result){
                  var table = document.getElementById("tablita");
+                 alert(result.length);
                 for (var i = 1; i < result.length+1; i++) {
                     var row = table.insertRow(i);
                     var cell1 = row.insertCell(0);
