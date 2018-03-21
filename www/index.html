@@ -38,82 +38,29 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <!--<link rel="stylesheet" type="text/css" href="css/index.css" />-->
 	<link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
-    <title>Hello World</title>
+    <title>Inicio</title>
 </head>
 <!--https://getbootstrap.com/docs/3.3/components/-->
 <body>
     <div class="container alert alert-success">
         <div id="deviceready" class="alert alert-alert">
-			<input type="text" class="form-control" placeholder="Search" id="numero" font-size="14"/>
+            <center><h3>Desarrollo de Aplicaciones para Dispositivos Moviles</h3></center>
+			<br><br><strong>Desarrollado por:</strong> 
+            <p>Andres Felipe Medina Tascon - 201667602<br>
+            Oscar Alexander Ruiz Palacio - 201667600</p>
 			<br>
-			<button class="btn btn-success" id="btnContactos" type="button" onclick="javascript:onDeviceReady();">Contactos?</button>
-			<button class="btn btn-danger" id="btnConnect" type="button" onclick="javascript:verificarConexion();">Conectado?</button>
-			<button class="btn btn-warning" id="btnNavegar" type="button" title="Ir a home" onclick="window.location.href='home.html'">Navegar</button>
-			<button class="btn btn-info" id="btnServicio" type="button" title="Traer Estudiantes" onclick="window.location.href='http://localhost/Alumnos/obtener_alumnos.php'">Servicio</button>
+			<button class="btn btn-success" id="btnContactos" type="button" onclick="window.location.href='contactos.html'">Ver Contactos</button>
+			<button class="btn btn-danger" id="btnConnect" type="button" onclick="javascript:verificarConexion();">Tipo de Conexion</button>
+			<button class="btn btn-warning" id="btnNavegar" type="button" title="Ir a home" onclick="window.location.href='home.html'">Entidades Bancarias Buga</button>
         </div>
-		<div class="container" role="alert">
-		<table class="table" id="tablita">
-		<tr>
-		<td>Nombre</td>
-		<td>Telefono</td>
-		</tr>
-		</table>
-		</div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
 	<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+
 	<script type="text/javascript">
-// device APIs are available
-
-			function onDeviceReady() {
-                alert('Boton contactos');
-                var options = new ContactFindOptions();
-				var telefono=document.getElementById("numero").value;
-				var fields = ["displayName", "name"];
-				if(telefono.length>0){
-				options.filter = telefono;
-				fields = ["displayName", "phoneNumbers"];
-				//options.hasPhoneNumber =true;
-				//options.filter = "maria";
-				}
-				options.multiple=true;
-                navigator.contacts.find(fields, onSuccess, onError, options);
-            }
-
-            // onSuccess: Get a snapshot of the current contacts
-            function onSuccess(contacts) {
-			console.log("Contactos = " + contacts.length);
-			alert('cantidad:'+contacts.length);
-                var table = document.getElementById("tablita");
-                table.innerHTML = "";
-
-				for (var i = 0; i < contacts.length; i++) {
-
-                    console.log("Display Name = " + contacts[i].displayName);
-                    
-                    var row = table.insertRow(i);
-                    var cell1 = row.insertCell(0);
-                   
-                    cell1.innerHTML = contacts[i].displayName;
-                    if (contacts[i].phoneNumbers !== null) {
-                        for (var j = 0; j < contacts[i].phoneNumbers.length; j++) {
-                         var cell2 = row.insertCell(1);
-                         cell2.innerHTML = contacts[i].phoneNumbers[j].value;
-                    }    
-
-                    }
-                    
-                }
-            }
-
-            // onError: Failed to get the contacts
-            function onError(contactError) {
-                alert('onError!');
-            }
-
             function verificarConexion() {
                 var networkState = navigator.connection.type;
 
@@ -129,9 +76,8 @@
 
                 alert('Tipo de Conexión: ' + states[networkState]);
             }
-
-    </script>
 	</script>
+
 	<script type="text/javascript">
         app.initialize();
     </script>
